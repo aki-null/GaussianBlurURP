@@ -54,6 +54,6 @@ u_xlat16_2 = texture(_SourceTex_xlat1.xy);
 u_xlat16_1 = texture(_SourceTex_xlat1.zw);
 u_xlat16_0 = u_xlat16_2 * vec4(0.253390133, 0.253390133, 0.253390133, 0.253390133) + u_xlat16_0;
 u_xlat16_0 = u_xlat16_1 * vec4(0.246609837, 0.246609837, 0.246609837, 0.246609837) + u_xlat16_0;
-u_xlat16_0 = u_xlat16_0 * vec4(0.25, 0.25, 0.25, 0.25);
 SV_Target0 = u_xlat16_0;
+return;
 ```

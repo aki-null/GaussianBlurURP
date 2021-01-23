@@ -48,7 +48,7 @@ inline float GaussianWeight(float sigma, int radius, int x)
 }
 
 // Separable Gaussian blur function with configurable sigma and radius.
-// 
+//
 // The delta parameter should be (texelSize.x, 0), and (0, texelSize.y) for each passes.
 // This function is used to quickly play around with sigma and radius values to find the optimal parameters in
 // development.
@@ -94,7 +94,6 @@ float4 GaussianBlur(TEXTURE2D_PARAM(tex, samplerTex), float2 delta, float2 uv, f
             idx = x1 + 1;
         }
     }
-    res /= radius + 1;
     return res;
 }
 
