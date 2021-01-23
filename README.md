@@ -9,7 +9,7 @@ This function is used to quickly play around with sigma and radius values to fin
 
 Replacing the sigma and radius parameters with literal values lets the Unity shader compiler produce efficient code.
 
-Do NOT use this function if parameters must be configurable for the shipping product.
+Do NOT use this function if parameters are dynamic for the shipping product.
 
 Usage
 ---
