@@ -40,7 +40,7 @@ inline float GaussianWeight(float sigma, int radius, int x)
     }
     float w = Gauss(sigma, x) / sum;
     UNITY_FLATTEN
-    if ((radius & 1) == 1 && x == 0)
+    if (x == 0)
     {
         w *= 0.5;
     }
