@@ -5,11 +5,9 @@ Separable Gaussian Blur for URP
 
 Separable Gaussian blur function with configurable sigma and radius.
 
-The delta parameter should be (texelSize.x, 0), and (0, texelSize.y) for each passes.
-
-This function is used to quickly play around with sigma and radius values to find the optimal parameters in development.
-
-Replacing the sigma and radius parameters with literal values lets the Unity shader compiler produce efficient code.
+1. Play around with sigma and radius values to find the optimal parameters.
+2. Replace the sigma and radius parameters with literal values to let the Unity shader compiler produce efficient code.
+3. `#define GAUSSIAN_BLUR_UNROLL 1` before including this file.
 
 Do NOT use this function if parameters are dynamic for the shipping product.
 
