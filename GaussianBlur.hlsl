@@ -33,7 +33,9 @@ inline float Gauss(float sigma, int x)
 inline float GaussianWeight(float sigma, int radius, int x)
 {
     float sum = 0;
+#if GAUSSIAN_BLUR_UNROLL
     UNITY_UNROLL
+#endif
     for (int i = 0; i < radius * 2 + 1; i++)
     {
         sum += Gauss(sigma, i - radius);
@@ -50,9 +52,13 @@ inline float GaussianWeight(float sigma, int radius, int x)
 // Separable Gaussian blur function with configurable sigma and radius.
 //
 // The delta parameter should be (texelSize.x, 0), and (0, texelSize.y) for each passes.
-// This function is used to quickly play around with sigma and radius values to find the optimal parameters in
-// development.
-// Replacing the sigma and radius parameters with literal values lets the Unity shader compiler produce efficient code.
+//
+// Usage:
+// 1. Play around with sigma and radius values to find the optimal parameters.
+// 2. Replace the sigma and radius parameters with literal values to let the Unity shader compiler produce efficient
+//    code.
+// 3. `#define GAUSSIAN_BLUR_UNROLL 1` before including this file.
+//
 // Do NOT use this function if parameters must be configurable for the shipping product.
 float4 GaussianBlur(TEXTURE2D_PARAM(tex, samplerTex), float2 delta, float2 uv, float sigma, int radius)
 {
@@ -60,7 +66,9 @@ float4 GaussianBlur(TEXTURE2D_PARAM(tex, samplerTex), float2 delta, float2 uv, f
     float4 res = 0;
 
     // Exploit bilinear sampling to reduce the number of texture fetches, only requiring radius + 1 fetches.
+#if GAUSSIAN_BLUR_UNROLL
     UNITY_UNROLL
+#endif
     for (int i = 0; i < radius + 1; ++i)
     {
         const int x0 = idx;
