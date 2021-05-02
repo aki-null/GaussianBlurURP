@@ -44,6 +44,7 @@ Notes
 
 Example Code Generated
 ---
+- Vertical pass
 - Sigma = 3
 - Radius = 6
 
