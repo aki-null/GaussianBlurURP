@@ -72,14 +72,9 @@ float4 GaussianBlur(TEXTURE2D_PARAM(tex, samplerTex), float2 delta, float2 uv, f
     for (int i = 0; i < radius + 1; ++i)
     {
         const int x0 = idx;
-        int x1 = x0 + 1;
-
         // Sample just the center texel if the radius is an even number
-        UNITY_FLATTEN
-        if ((radius & 1) == 0 && x0 == 0)
-        {
-            x1 = 0;
-        }
+        const bool isCenter = (radius & 1) == 0 && x0 == 0;
+        const int x1 = isCenter ? 0 : x0 + 1;
 
         // Calculate the weights for each texel
         const float w0 = GaussianWeight(sigma, radius, x0);
@@ -87,7 +82,7 @@ float4 GaussianBlur(TEXTURE2D_PARAM(tex, samplerTex), float2 delta, float2 uv, f
 
         // Adjust the sampling position depending on the required weight.
         // Use bilinear sampling to fetch two texels at once.
-        const float texelOffset = w1 / (w0 + w1);
+        const float texelOffset = isCenter ? 0 : w1 / (w0 + w1);
         const float2 sampleUV = uv + (x0 + texelOffset) * delta;
         res += SAMPLE_TEXTURE2D(tex, samplerTex, sampleUV) * (w0 + w1);
 

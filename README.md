@@ -48,36 +48,25 @@ Example Code Generated
 - Radius = 6
 
 ```glsl
-u_xlat0.xz = _SourceTex_TexelSize.yy;
-u_xlat0.y = float(-5.35180569);
-u_xlat0.w = float(-3.40398479);
-u_xlat0 = u_xlat0 * vec4(-5.35180569, 0.0, -3.40398479, 0.0) + vs_TEXCOORD0.xyxy;
-u_xlat16_1 = texture(_SourceTex, u_xlat0.zw);
-u_xlat16_0 = texture(_SourceTex, u_xlat0.xy);
-u_xlat1 = u_xlat16_1 * vec4(0.139440298, 0.139440298, 0.139440298, 0.139440298);
-u_xlat0 = u_xlat16_0 * vec4(0.0527109653, 0.0527109653, 0.0527109653, 0.0527109653) + u_xlat1;
-u_xlat1.xz = _SourceTex_TexelSize.yy;
-u_xlat1.y = float(-1.45842957);
-u_xlat1.w = float(0.5);
-u_xlat1 = u_xlat1 * vec4(-1.45842957, 0.0, 0.5, 0.0) + vs_TEXCOORD0.xyxy;
-u_xlat16_2 = texture(_SourceTex, u_xlat1.xy);
-u_xlat16_1 = texture(_SourceTex, u_xlat1.zw);
-u_xlat0 = u_xlat16_2 * vec4(0.239337295, 0.239337295, 0.239337295, 0.239337295) + u_xlat0;
-u_xlat0 = u_xlat16_1 * vec4(0.137022808, 0.137022808, 0.137022808, 0.137022808) + u_xlat0;
-u_xlat1.xz = _SourceTex_TexelSize.yy;
-u_xlat1.y = float(1.45842957);
-u_xlat1.w = float(3.40398479);
-u_xlat1 = u_xlat1 * vec4(1.45842957, 0.0, 3.40398479, 0.0) + vs_TEXCOORD0.xyxy;
-u_xlat16_2 = texture(_SourceTex, u_xlat1.xy);
-u_xlat16_1 = texture(_SourceTex, u_xlat1.zw);
-u_xlat0 = u_xlat16_2 * vec4(0.239337295, 0.239337295, 0.239337295, 0.239337295) + u_xlat0;
-u_xlat0 = u_xlat16_1 * vec4(0.139440298, 0.139440298, 0.139440298, 0.139440298) + u_xlat0;
-u_xlat1.x = _SourceTex_TexelSize.y;
-u_xlat1.y = 5.35180569;
-u_xlat1.xy = u_xlat1.xy * vec2(5.35180569, 0.0) + vs_TEXCOORD0.xy;
+u_xlat0.x = 0.0;
+u_xlat0.y = _SourceTex_TexelSize.y;
+u_xlat1 = vec4(-5.35180569, -5.35180569, -3.40398479, -3.40398479) * u_xlat0.xyxy + vs_TEXCOORD0.xyxy;
+u_xlat16_2 = texture(_SourceTex, u_xlat1.zw);
 u_xlat16_1 = texture(_SourceTex, u_xlat1.xy);
-u_xlat0 = u_xlat16_1 * vec4(0.0527109653, 0.0527109653, 0.0527109653, 0.0527109653) + u_xlat0;
+u_xlat2 = u_xlat16_2 * vec4(0.139440298, 0.139440298, 0.139440298, 0.139440298);
+u_xlat1 = u_xlat16_1 * vec4(0.0527109653, 0.0527109653, 0.0527109653, 0.0527109653) + u_xlat2;
+u_xlat2 = vec4(-1.45842957, -1.45842957, 1.45842957, 1.45842957) * u_xlat0.xyxy + vs_TEXCOORD0.xyxy;
+u_xlat0 = vec4(3.40398479, 3.40398479, 5.35180569, 5.35180569) * u_xlat0.xyxy + vs_TEXCOORD0.xyxy;
+u_xlat16_3 = texture(_SourceTex, u_xlat2.xy);
+u_xlat16_2 = texture(_SourceTex, u_xlat2.zw);
+u_xlat1 = u_xlat16_3 * vec4(0.239337295, 0.239337295, 0.239337295, 0.239337295) + u_xlat1;
+u_xlat16_3 = texture(_SourceTex, vs_TEXCOORD0.xy);
+u_xlat1 = u_xlat16_3 * vec4(0.137022808, 0.137022808, 0.137022808, 0.137022808) + u_xlat1;
+u_xlat1 = u_xlat16_2 * vec4(0.239337295, 0.239337295, 0.239337295, 0.239337295) + u_xlat1;
+u_xlat16_2 = texture(_SourceTex, u_xlat0.xy);
+u_xlat16_0 = texture(_SourceTex, u_xlat0.zw);
+u_xlat1 = u_xlat16_2 * vec4(0.139440298, 0.139440298, 0.139440298, 0.139440298) + u_xlat1;
+u_xlat0 = u_xlat16_0 * vec4(0.0527109653, 0.0527109653, 0.0527109653, 0.0527109653) + u_xlat1;
 SV_Target0 = u_xlat0;
-return;
 ```
 
