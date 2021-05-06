@@ -39,13 +39,13 @@ return GaussianBlurVertical(_SourceTex, sampler_SourceTex, _SourceTex_TexelSize,
 
 ### 1 Pass
 
-It is sometimes not possible or is too difficult to prepare a temporary texture for the 2 pass approach. This function reduces the number of texture samples significantly.
+This variant is used to perform Gaussian blur in a single pass. This is useful when it is not possible or is too difficult to prepare a temporary texture for the 2 pass approach.
 
 The number of texture samples needed is `(radius + 1)^2`.
 
 For example, a 5x5 kernel has a radius of 2, which means 9 texture samples are needed in this case.
 
-This is significantly smaller than the naive implementation, which requires `(radius * 2 + 1)^2`, but is still is an `O(n^2)` algorithm.
+This is significantly smaller than the naive implementation, which requires `(radius * 2 + 1)^2`, but still is an `O(n^2)` algorithm.
 
 ```hlsl
 return GaussianBlurSingle(_SourceTex, sampler_SourceTex, _SourceTex_TexelSize, i.uv, 1, 2);
