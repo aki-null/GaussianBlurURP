@@ -23,7 +23,7 @@ Include this shader file (path may vary):
 
 It is highly recommended to use this variation if you have access to a temporary texture to ping-pong buffer.
 
-The number of texture samples needed for each pass is radius + 1.
+The number of texture samples needed for each pass is `radius + 1`.
 
 For example, a 5x5 kernel has a radius of 2, which means 3 texture samples are needed for each pass.
 
